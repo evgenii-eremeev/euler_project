@@ -6,9 +6,10 @@ import urllib2
 import math
 import mytime
 
-url = "https://primes.utm.edu/lists/small/10000.txt"
+url = "https://primes.py.utm.edu/lists/small/10000.txt"
 primes = urllib2.urlopen(url).read()
 primes = map(int, primes[167:primes.find('end')].split())
+
 
 def is_prime(num):
     for div in range(2, num):
@@ -31,7 +32,7 @@ def find_prime(count):
     return primes
 
 # answer
-#print find_prime(10001)[-1]
+# print find_prime(10001)[-1]
 
 
 # solution by forum member
@@ -81,7 +82,7 @@ def make_primelist(limit, sieve_len=2000000):
 #print "By someone:", mytime.mytime(find_nth_prime, 10001)
 #print "My best shot:", mytime.mytime(make_primelist, 10001)
 
-#print make_primelist(10000) == primes
+#print make_primelist(10000) == primes.py
 
 
 

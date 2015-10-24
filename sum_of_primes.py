@@ -16,8 +16,8 @@ def sum_of_primes(limit):
     while current_prime < limit:
         if sieve[current_prime]:
             primes.append(current_prime)
-            # when new prime is fount we should check all multiples of that prime as non-primes.
-            # we start loop at current_prime**2 becouse we alredy checked all non-primes before.
+            # when new prime is fount we should check all multiples of that prime as non-primes.py.
+            # we start loop at current_prime**2 becouse we alredy checked all non-primes.py before.
             for multiple in xrange(current_prime**2, limit, current_prime):
                 sieve[multiple] = 0
         current_prime += 1
