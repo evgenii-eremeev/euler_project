@@ -1,4 +1,4 @@
-# Euler project solutions
+# Project Euler Solutions
 
 https://projecteuler.net/
 
