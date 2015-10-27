@@ -1,4 +1,5 @@
-# euler_project
-Solutions for Project Euler problems
+# Euler project solutions
+
+https://projecteuler.net/
 
 Language: Python 3.4
