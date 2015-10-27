@@ -1,4 +1,5 @@
 """
+https://projecteuler.net/problem=11
 In the 20*20 grid below, four numbers along a diagonal line have been marked in red.
 
 The product of these numbers is 26 * 63 * 78 * 14 = 1788696.
@@ -6,6 +7,7 @@ The product of these numbers is 26 * 63 * 78 * 14 = 1788696.
 What is the greatest product of four adjacent numbers in the same direction
 (up, down, left, right, or diagonally) in the 20*20 grid?
 """
+from functools import reduce
 
 GRID = """
     08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
@@ -33,13 +35,14 @@ GRID = GRID.split()
 GRID = [[int(num) for num in GRID[i: i + 20]]
         for i in range(0, len(GRID), 20)]
 
+
 def mult(seq):
     return len(seq) and reduce(lambda a, b: a * b, seq)
 
 
 width = len(GRID[0])
 height = len(GRID)
-steps = 4 # number of numbers
+steps = 4  # number of numbers
 
 largest_product = -1
 largest_seq = []
@@ -80,8 +83,9 @@ for row in range(height):
                 largest_dir = direction
                 begins_in_row = row
         
-            
-print largest_product, largest_seq, direction, begins_in_row
+# first number printed is an answer
+# else is for helping to locate there these digits on the grid
+print(largest_product, largest_seq, largest_dir, begins_in_row)
     
 
 

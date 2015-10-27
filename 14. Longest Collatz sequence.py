@@ -1,4 +1,5 @@
 """
+https://projecteuler.net/problem=14
 The following iterative sequence is defined for the set of positive integers:
 
 n → n/2 (n is even)
@@ -12,7 +13,7 @@ Although it has not been proved yet (Collatz Problem), it is thought that all st
 
 Which starting number, under one million, produces the longest chain?
 """
-from mytime import mytime
+
 
 def collatz(num):
     seq = [num]
@@ -43,4 +44,5 @@ def longest_collatz(limit):
 
 
 lim = 1000000
-print(mytime(longest_collatz, lim))
+# answer
+print(longest_collatz(lim))

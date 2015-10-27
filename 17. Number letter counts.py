@@ -1,4 +1,5 @@
 """
+https://projecteuler.net/problem=17
 If the numbers 1 to 5 are written out in words: one, two, three, four, five,
 then there are 3 + 3 + 5 + 4 + 4 = 19 letters used in total.
 
@@ -47,15 +48,12 @@ def count_letters(limit=1000):
     for num in range(1, limit + 1):
         if num in NUMBERS.keys():
             total_len += len(NUMBERS[num])
-            print(NUMBERS[num])
         elif num < 100:
             total_len += len(NUMBERS[num // 10 * 10] + NUMBERS[num % 10])
-            print(NUMBERS[num // 10 * 10] + NUMBERS[num % 10])
         else:
             total_len += len(NUMBERS[num // 100]) + len('hundred')
             test = NUMBERS[num // 100] + 'hundred'
             if num % 100 == 0:
-                print(test)
                 continue
             elif num % 100 in NUMBERS.keys():
                 total_len += len('and') + len(NUMBERS[num % 100])
@@ -65,7 +63,8 @@ def count_letters(limit=1000):
                 total_len += len(NUMBERS[num % 100 // 10 * 10])
                 total_len += len(NUMBERS[num % 100 % 10])
                 test += 'and' + NUMBERS[num % 100 // 10 * 10] + NUMBERS[num % 100 % 10]
-            print(test)
     return total_len
 
+
+# answer
 print(count_letters(1000))

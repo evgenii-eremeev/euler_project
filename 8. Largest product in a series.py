@@ -1,8 +1,10 @@
 """
+https://projecteuler.net/problem=8
 The four adjacent digits in the 1000-digit number that have the greatest product are 9 * 9 * 8 * 9 = 5832.
 Find the thirteen adjacent digits in the 1000-digit number that have the greatest product.
 What is the value of this product?
 """
+from functools import reduce
 
 NUMBER = """
         73167176531330624919225119674426574742355349194934
@@ -29,23 +31,22 @@ NUMBER = """
         
 NUMBER = "".join(NUMBER.split())
 
+
 def greatest_product(seq, length):
     i = 0
     j = length
     greatest_prod = -1
-    greatest_seq = []
     while j <= len(seq):
         current_seq = seq[i : j]
         current_prod = reduce(lambda x, y: int(x) * int(y), current_seq)
         if greatest_prod < current_prod:
             greatest_prod = current_prod
-            greatest_seq = current_seq
         i += 1
         j += 1
-    return greatest_prod, greatest_seq
+    return greatest_prod
     
-
-print greatest_product(NUMBER, 13)    
+# answer
+print(greatest_product(NUMBER, 13))
     
     
     
